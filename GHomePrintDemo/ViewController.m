@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "GHomePrint.h"
 
 @interface ViewController ()
 
@@ -16,8 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [[GHomePrint sharedManager] setHidden:NO];
 }
 
 
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [[GHomePrint sharedManager] printString:@"我只是个测试"];
+}
 @end
