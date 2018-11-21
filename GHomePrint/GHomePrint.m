@@ -45,6 +45,7 @@
 
 @end
 @implementation GHomePrint
+
 #define kScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 #define iPhoneX (kScreenWidth == 375.f && kScreenHeight == 812.f ? YES : NO)
@@ -69,7 +70,7 @@
 
 - (instancetype)init {
     
-    self = [super initWithFrame:CGRectMake(0, GHSafeAreaTopHeight, kScreenWidth, 200 + GHSafeAreaTopHeight)];
+    self = [super initWithFrame:CGRectMake(0, GHStatusBarHeight, kScreenWidth, kScreenHeight - GHStatusBarHeight)];
     if (self){
         [self configuration];
         [self setupUI];
@@ -81,7 +82,6 @@
     self.rootViewController = [UIViewController new];
     self.windowLevel = UIWindowLevelAlert;
     self.userInteractionEnabled = NO;
-    [self setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.2]];
 }
 - (void)setupUI {
     [self addSubview:self.textView];
@@ -130,7 +130,7 @@
         }
         NSString *string = [NSString stringWithFormat:@"%@ %@",printModel.currentTime,printModel.log];
         NSMutableAttributedString *logString = [[NSMutableAttributedString alloc] initWithString:string];
-        [logString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, logString.length)];
+        [logString addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:NSMakeRange(0, logString.length)];
 
         [attributedString appendAttributedString:logString];
     }
@@ -164,7 +164,6 @@
         _textView.backgroundColor = [UIColor clearColor];
         _textView.scrollsToTop = NO;
         _textView.text = @"点击";
-        _textView.textColor = [UIColor whiteColor];
     }
     return _textView;
 }

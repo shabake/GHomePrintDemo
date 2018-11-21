@@ -23,7 +23,6 @@
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [[GHomePrint sharedManager] printString:@"我只是个测试"];
 }
 @end

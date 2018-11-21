@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.summary      = "屏幕调试,输出log"
 
   s.description  = <<-DESC
-  屏幕调试,输出log
+  屏幕调试,输出log 测试用
                    DESC
 
   s.homepage     = "https://github.com/shabake/GHomePrintDemo"
