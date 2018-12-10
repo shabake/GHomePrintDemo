@@ -80,7 +80,6 @@
 }
 
 - (void)configuration {
-    self.rootViewController = [UIViewController new];
     self.windowLevel = UIWindowLevelAlert;
     self.userInteractionEnabled = NO;
 }
@@ -120,17 +119,26 @@
         [self refreshLogDisplay];
     }
 }
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self dismiss];
+}
 - (void)show {
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         [self.layer setOpacity:1.0];
-        self.textView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width -270) * .5, ([UIScreen mainScreen].bounds.size.height -350 ) * .5, 270, 350);
+        self.textView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width -350) * .5, ([UIScreen mainScreen].bounds.size.height -350 ) * .5 - GHSafeAreaTopHeight, 350, 350);
 
     } completion:^(BOOL finished) {
 
     }];
 }
 - (void)dismiss {
-    
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        [self.layer setOpacity:0.0];
+        self.textView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width -350 ) * .5 , [UIScreen mainScreen].bounds.size.height, 350, 350);
+        
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 - (void)refreshLogDisplay {
     
@@ -151,6 +159,7 @@
     if(attributedString.length > 0) {
         NSRange bottom = NSMakeRange(attributedString.length - 1, 1);
         [self.textView scrollRangeToVisible:bottom];
+
     }
 }
 
@@ -177,8 +186,10 @@
         _textView.text = @"点击";
         _textView.layer.masksToBounds = YES;
         _textView.layer.cornerRadius = 5;
-
-        _textView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width -270 ) * .5 , [UIScreen mainScreen].bounds.size.height, 270, 350);
+        _textView.layer.shadowColor = [UIColor blackColor].CGColor;
+        _textView.layer.shadowOffset = CGSizeMake(0, -3);
+        _textView.layer.shadowOpacity = 0.41;
+        _textView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width -350 ) * .5 , [UIScreen mainScreen].bounds.size.height, 350, 350);
     }
     return _textView;
 }

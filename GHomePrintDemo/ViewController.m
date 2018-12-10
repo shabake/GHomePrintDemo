@@ -18,13 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[GHomePrint sharedManager] setHidden:NO];
+    [[GHomePrint sharedManager] printString:@"我只是个测试只是个测试我只是个测试我只是个测试我只是个测试我只是个测试我只是个测试"];
 }
 
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [[GHomePrint sharedManager] printString:@"我只是个测试只是个测试我只是个测试我只是个测试我只是个测试我只是个测试我只是个测试"];
-    [[GHomePrint sharedManager] printString:@"我只是个测试只是个测试我只是个测试我只是个测试我只是个测试我只是个测试我只是个测试"];
 
 }
 @end
