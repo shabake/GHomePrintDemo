@@ -74,6 +74,7 @@
     if (self){
         [self configuration];
         [self setupUI];
+        [self show];
     }
     return self;
 }
@@ -119,7 +120,18 @@
         [self refreshLogDisplay];
     }
 }
+- (void)show {
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        [self.layer setOpacity:1.0];
+        self.textView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width -270) * .5, ([UIScreen mainScreen].bounds.size.height -350 ) * .5, 270, 350);
 
+    } completion:^(BOOL finished) {
+
+    }];
+}
+- (void)dismiss {
+    
+}
 - (void)refreshLogDisplay {
     
     NSMutableAttributedString *attributedString = [NSMutableAttributedString new];
@@ -149,7 +161,6 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.textView.frame = self.bounds;
 }
 #pragma mark - 懒加载
 - (NSMutableArray *)logs {
@@ -161,9 +172,13 @@
 - (UITextView *)textView {
     if (_textView == nil) {
         _textView = [[UITextView alloc]init];
-        _textView.backgroundColor = [UIColor clearColor];
+        _textView.backgroundColor = [UIColor redColor];
         _textView.scrollsToTop = NO;
         _textView.text = @"点击";
+        _textView.layer.masksToBounds = YES;
+        _textView.layer.cornerRadius = 5;
+
+        _textView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width -270 ) * .5 , [UIScreen mainScreen].bounds.size.height, 270, 350);
     }
     return _textView;
 }

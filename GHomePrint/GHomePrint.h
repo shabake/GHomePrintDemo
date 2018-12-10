@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GHomePrint : UIWindow
+
 + (instancetype)sharedManager;
 
 /** 打印log (String 类型) */
