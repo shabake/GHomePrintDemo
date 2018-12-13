@@ -8,7 +8,7 @@
 
 **功能**
 * 一键复制的剪切板
-* 展示log ```(NSSting类型)``````(NSDictionary类型)```
+* 展示log ```(NSSting类型)``` ```(NSDictionary类型)```
 
 **使用方法**
 ```
