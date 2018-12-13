@@ -31,3 +31,6 @@ pod 'GHomePrint', '1.0.0'
 ```
 
 **使用**
+    
+>      [[GHomePrint sharedManager] printString:@"你要打印的字符串"];
+
