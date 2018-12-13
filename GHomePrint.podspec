@@ -4,8 +4,8 @@ Pod::Spec.new do |s|
 
 
   s.name         = "GHomePrint"
-  s.version      = "1.0.0"
-  s.summary      = "屏幕调试,输出log"
+  s.version      = "1.0.1"
+  s.summary      = "屏幕调试,输出log1"
 
   s.description  = <<-DESC
   屏幕调试,输出log 测试用
