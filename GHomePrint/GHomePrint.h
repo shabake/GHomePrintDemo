@@ -10,16 +10,17 @@
 #import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GHomePrint : UIWindow
+@interface GHomePrint : UIView
 
 + (instancetype)sharedManager;
-
 /** 打印log (String 类型) */
 - (void)printString:(NSString *)textString;
 /** 打印log (NSDictionary 类型) */
 - (void)printDict:(NSDictionary *)dict;
 /** 清除所有数据 */
 - (void)clear;
+
+- (void)show;
 @end
 
 NS_ASSUME_NONNULL_END

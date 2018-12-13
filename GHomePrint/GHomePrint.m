@@ -7,7 +7,7 @@
 //
 
 #import "GHomePrint.h"
-
+/** 日志模型 */
 @interface GHomePrintModel : NSObject
 /** 输出 */
 @property (nonatomic, strong) NSString *log;
@@ -42,6 +42,8 @@
 
 @property (nonatomic , strong) UITextView *textView;
 @property (nonatomic , strong) NSMutableArray *logs;
+/** 容器视图 */
+@property (nonatomic , strong) UIView *contentView;
 
 @end
 @implementation GHomePrint
@@ -70,7 +72,7 @@
 
 - (instancetype)init {
     
-    self = [super initWithFrame:CGRectMake(0, GHStatusBarHeight, kScreenWidth, kScreenHeight - GHStatusBarHeight)];
+    self = [super initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     if (self){
         [self configuration];
         [self setupUI];
@@ -80,11 +82,13 @@
 }
 
 - (void)configuration {
-    self.windowLevel = UIWindowLevelAlert;
-    self.userInteractionEnabled = NO;
+    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:102.0/255];
 }
+
 - (void)setupUI {
-    [self addSubview:self.textView];
+    [self addSubview:self.contentView];
+    [self.contentView addSubview:self.textView];
+
 }
 
 - (void)printDict:(NSDictionary *)dict {
@@ -105,6 +109,7 @@
     });
 }
 - (void)printWithNewLog:(NSString *)newText {
+    [self show];
     if (newText.length == 0) {
         return;
     }
@@ -120,24 +125,24 @@
     }
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
     [self dismiss];
 }
 - (void)show {
+    [[UIApplication sharedApplication].keyWindow addSubview:self];
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         [self.layer setOpacity:1.0];
-        self.textView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width -350) * .5, ([UIScreen mainScreen].bounds.size.height -350 ) * .5 - GHSafeAreaTopHeight, 350, 350);
-
+        self.contentView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width -350) * .5, ([UIScreen mainScreen].bounds.size.height -270 ) * .5 - GHSafeAreaTopHeight, 350, 270);
     } completion:^(BOOL finished) {
 
     }];
 }
 - (void)dismiss {
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        [self.layer setOpacity:0.0];
-        self.textView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width -350 ) * .5 , [UIScreen mainScreen].bounds.size.height, 350, 350);
-        
+        self.contentView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width -350 ) * .5 , [UIScreen mainScreen].bounds.size.height, 350, 270);
     } completion:^(BOOL finished) {
-        
+        [self.layer setOpacity:0.0];
+        [self removeFromSuperview];
     }];
 }
 - (void)refreshLogDisplay {
@@ -151,6 +156,7 @@
         NSString *string = [NSString stringWithFormat:@"%@ %@",printModel.currentTime,printModel.log];
         NSMutableAttributedString *logString = [[NSMutableAttributedString alloc] initWithString:string];
         [logString addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:NSMakeRange(0, logString.length)];
+        [logString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:16] range:NSMakeRange(0,logString.length)];
 
         [attributedString appendAttributedString:logString];
     }
@@ -172,6 +178,16 @@
     [super layoutSubviews];
 }
 #pragma mark - 懒加载
+- (UIView *)contentView {
+    if (_contentView == nil) {
+        _contentView = [[UIView alloc]init];
+        _contentView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width -350 ) * .5 , [UIScreen mainScreen].bounds.size.height, 350, 270);
+        _contentView.backgroundColor = [UIColor whiteColor];
+        _contentView.layer.masksToBounds = YES;
+        _contentView.layer.cornerRadius = 5;
+    }
+    return _contentView;
+}
 - (NSMutableArray *)logs {
     if (_logs == nil) {
         _logs = [NSMutableArray array];
@@ -181,15 +197,9 @@
 - (UITextView *)textView {
     if (_textView == nil) {
         _textView = [[UITextView alloc]init];
-        _textView.backgroundColor = [UIColor redColor];
-        _textView.scrollsToTop = NO;
-        _textView.text = @"点击";
-        _textView.layer.masksToBounds = YES;
-        _textView.layer.cornerRadius = 5;
-        _textView.layer.shadowColor = [UIColor blackColor].CGColor;
-        _textView.layer.shadowOffset = CGSizeMake(0, -3);
-        _textView.layer.shadowOpacity = 0.41;
-        _textView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width -350 ) * .5 , [UIScreen mainScreen].bounds.size.height, 350, 350);
+        _textView.backgroundColor = [UIColor whiteColor];
+        _textView.frame = CGRectMake(10, 10, 350 - 20, 270 - 44- 10);
+        _textView.font = [UIFont systemFontOfSize:20];
     }
     return _textView;
 }

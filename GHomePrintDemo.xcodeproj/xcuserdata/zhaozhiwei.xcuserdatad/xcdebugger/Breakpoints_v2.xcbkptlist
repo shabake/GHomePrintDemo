@@ -2,4 +2,69 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHomePrint/GHomePrint.m"
+            timestampString = "566362990.502866"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "-show"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[GHomePrint show]"
+                  moduleName = "GHomePrintDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaozhiwei/Desktop/demo/GHomePrintDemo/GHomePrint/GHomePrint.m"
+                  timestampString = "566285166.923823"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "41">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__18-[GHomePrint show]_block_invoke"
+                  moduleName = "GHomePrintDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaozhiwei/Desktop/demo/GHomePrintDemo/GHomePrint/GHomePrint.m"
+                  timestampString = "566285166.926424"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "15">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.111"
+                  moduleName = "GHomePrintDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaozhiwei/Desktop/demo/GHomePrintDemo/GHomePrint/GHomePrint.m"
+                  timestampString = "566285166.929899"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
