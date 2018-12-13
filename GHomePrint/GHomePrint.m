@@ -88,7 +88,7 @@ typedef NS_ENUM (NSUInteger,GHomePrintButtonType ) {
 }
 
 - (void)configuration {
-    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:102.0/255];    
+    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:102.0/255];
 }
 
 - (void)setupUI {
@@ -212,19 +212,22 @@ typedef NS_ENUM (NSUInteger,GHomePrintButtonType ) {
 - (UITextView *)textView {
     if (_textView == nil) {
         _textView = [[UITextView alloc]init];
-        _textView.frame = CGRectMake(10, 10, 350 - 20, 270 - 50 - 20);
+        _textView.frame = CGRectMake(10, 10, 350 - 20, 270 - 30 - 20);
         _textView.font = [UIFont systemFontOfSize:20];
         _textView.delegate = self;
+        _textView.textColor = [UIColor darkGrayColor];
+        _textView.editable = NO;
         CGFloat width = (350 - 20 - 10)/2;
         NSArray *titles = @[@"一键复制",@"关闭"];
         for (NSInteger index = 0; index < 2; index++) {
             UIButton *button = [[UIButton alloc]init];
             [button setTitle:titles[index] forState:UIControlStateNormal];
-            [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            button.frame = CGRectMake(10 * index + index * width + 10, _textView.frame.size.height + _textView.frame.origin.y, width, 50);
+            [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+            button.frame = CGRectMake(10 * index + index * width + 10, _textView.frame.size.height + _textView.frame.origin.y, width, 30);
             button.layer.masksToBounds = YES;
-            button.layer.cornerRadius = 2;
+            button.layer.cornerRadius = 5;
             button.layer.borderWidth = 1;
+            button.layer.borderColor =[UIColor lightGrayColor].CGColor;
             if (index == 0) {
                 button.tag = GHomePrintButtonTypeSeletedAll;
             } else {
