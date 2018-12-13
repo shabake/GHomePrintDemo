@@ -22,8 +22,7 @@
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [[GHomePrint sharedManager] printString:@"asdasda阿善动安徽省地阿斯顿还是得安顺达四大还哦的按时代会上到山顶啊师大会受到"];
+    [[GHomePrint sharedManager] printString:@"asdasda阿善动安徽省地阿斯顿还是得安顺达四大还哦的按时代会上到山顶啊师大会受到asdasda阿善动安徽省地阿斯顿还是得安顺达四大还哦的按时代会上到山顶啊师大会受到asdasda阿善动安徽省地阿斯顿还是得安顺达四大还哦的按时代会上到山顶啊师大会受到asdasda阿善动安徽省地阿斯顿还是得安顺达四大还哦的按时代会上到山顶啊师大会受到asdasda阿善动安徽省地阿斯顿还是得安顺达四大还哦的按时代会上到山顶啊师大会受到asdasda阿善动安徽省地阿斯顿还是得安顺达四大还哦的按时代会上到山顶啊师大会受到asdasda阿善动安徽省地阿斯顿还是得安顺达四大还哦的按时代会上到山顶啊师大会受到asdasda阿善动安徽省地阿斯顿还是得安顺达四大还哦的按时代会上到山顶啊师大会受到asdasda阿善动安徽省地阿斯顿还是得安顺达四大还哦的按时代会上到山顶啊师大会受到"];
  
-
 }
 @end
